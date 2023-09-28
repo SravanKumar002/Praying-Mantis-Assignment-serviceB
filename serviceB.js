@@ -9,7 +9,11 @@ require("dotenv").config();
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect(process.env.DATABASE_URL);
+mongoose.connect(process.env.DATABASE_URL, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+}
+);
 const db = mongoose.connection;
 
 
