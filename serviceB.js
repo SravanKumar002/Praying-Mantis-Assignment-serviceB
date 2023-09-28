@@ -4,11 +4,12 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
 const PORT = 3001 || process.env.PORT;
+require("dotenv").config();
 
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect("mongodb+srv://sravankumarega002:Sravan123@cluster0.ka0g799.mongodb.net/?retryWrites=true&w=majority");
+mongoose.connect(process.env.DATABASE_URL);
 const db = mongoose.connection;
 
 
